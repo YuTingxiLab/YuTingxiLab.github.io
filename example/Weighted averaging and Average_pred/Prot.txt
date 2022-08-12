@@ -1,0 +1,79 @@
+C:\Users\sxsy\AppData\Local\Programs\Python\Python36\python.exe "D:/Wheat-ML-K折交叉验证实验/多模型融合算法工程Combining learning_cv10/Biending.py"
+          id      Prot  kfold  ...  NuSVR_pred  GBDT_pred  XGBoost_pred
+0     189201  0.128817      0  ...    0.213334   0.183963      0.087048
+1     375697  0.498582      0  ...   -0.412104  -0.378724     -0.237339
+2     190029  0.498582      0  ...    0.145670   0.222556      0.033395
+3     188043  2.162525      0  ...   -0.365841  -0.201399      0.180581
+4     189003 -0.056066      0  ...    0.246865   0.215906      0.188709
+...      ...       ...    ...  ...         ...        ...           ...
+1995  187893  1.515436      9  ...    0.191437   0.310398     -0.091278
+1996  375778  1.238112      9  ...   -0.452110  -0.517092     -0.246866
+1997  308007 -0.148507      9  ...   -0.024264   0.062684      0.131838
+1998  188243 -2.459539      9  ...   -0.788978  -1.000716     -0.379816
+1999  375895 -0.518272      9  ...   -0.450119  -0.280137     -0.413125
+
+[2000 rows x 11 columns]
+GBDT_pred, overall_MAE0.6488978511118941
+GBDT_pred, overall_MSE0.6937179200890702
+GBDT_pred, overall_RMSE0.8328973046474999
+GBDT_pred, overall_R20.3059350474346473
+GBDT_pred, overall_PCCs(0.5538595869785912, 3.5493779730794306e-161)
+KNN_pred, overall_MAE0.6996561209689809
+KNN_pred, overall_MSE0.7904700910208583
+KNN_pred, overall_RMSE0.8890838492633067
+KNN_pred, overall_R20.20913447621725045
+KNN_pred, overall_PCCs(0.46199769317182343, 2.637824951461118e-106)
+KRR_pred, overall_MAE0.6673548157217721
+KRR_pred, overall_MSE0.7506542997629533
+KRR_pred, overall_RMSE0.8664030815751715
+KRR_pred, overall_R20.2489701853297116
+KRR_pred, overall_PCCs(0.5124304447550709, 2.4300991797174573e-134)
+linearSVR_pred, overall_MAE0.6617820845087732
+linearSVR_pred, overall_MSE0.738470814182001
+linearSVR_pred, overall_RMSE0.8593432458465017
+linearSVR_pred, overall_R20.2611597657008494
+linearSVR_pred, overall_PCCs(0.5211261771446343, 1.1429201036767684e-139)
+RF_pred, overall_MAE0.6673311723006491
+RF_pred, overall_MSE0.72611074739183
+RF_pred, overall_RMSE0.8521213219910825
+RF_pred, overall_R20.273526015615978
+RF_pred, overall_PCCs(0.5496041875014983, 3.036322508843659e-158)
+NuSVR_pred, overall_MAE0.6492536889179432
+NuSVR_pred, overall_MSE0.7002723818385289
+NuSVR_pred, overall_RMSE0.836822789985149
+NuSVR_pred, overall_R20.2993773068148786
+NuSVR_pred, overall_PCCs(0.5559239458297349, 1.295277617175792e-162)
+SVR_pred, overall_MAE0.6459132558104808
+SVR_pred, overall_MSE0.6973972294052292
+SVR_pred, overall_RMSE0.8351031250122521
+SVR_pred, overall_R20.3022538975435427
+SVR_pred, overall_PCCs(0.5567011595316278, 3.7019116962256306e-163)
+XGBoost_pred, overall_MAE0.6528913732775298
+XGBoost_pred, overall_MSE0.7074714257706196
+XGBoost_pred, overall_RMSE0.8411132062752431
+XGBoost_pred, overall_R20.2921746615601606
+XGBoost_pred, overall_PCCs(0.5406602957304466, 3.229798920789466e-152)
+average
+MAE =  0.6483191251387429
+MSE =  0.6966818770485443
+RMSE =  0.8346747133156391
+R2 =  0.3029696077553333
+PCCs =  (0.5553851343633323, 3.080415904356044e-162)
+weight average
+MAE =  0.6403241286902942
+MSE =  0.6851307248582661
+RMSE =  0.8277262378699047
+R2 =  0.31452653841093936
+PCCs =  (0.5611446551739835, 2.696596352042093e-166)
+
+Process finished with exit code 0
+
+
+avg_pred = ((0.2197097)*GBDT_pred +
+                (-0.04672848)*KNN_pred +
+                (-0.34324801)*KRR_pred +
+                (0.18715281)*RF_pred +
+                (0.41131578)*SVR_pred +
+                (0.36208868)*linearSVR_pred +
+                (0.1514448)*NuSVR_pred +
+                0.2305528*XGBoost_pred)
